@@ -51,4 +51,9 @@ yarn-error.log*
 ProjectPro/**/Input/
 ProjectPro/**/Output/
 ProjectPro/**/Data/
-ProjectPro/**/*.csv 
+ProjectPro/**/*.csv
+
+# Ignore large archive, model, and SQL files in ProjectPro
+ProjectPro/**/*.zip
+ProjectPro/**/*.pkl
+ProjectPro/**/*.sql 
