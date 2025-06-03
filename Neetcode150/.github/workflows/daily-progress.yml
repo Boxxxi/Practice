@@ -1,0 +1,42 @@
+name: Daily Progress Update
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day
+    - cron: '0 0 * * *'
+  # Run on every push to any branch
+  push:
+    branches:
+      - '*'
+  # Allows manual triggering from the Actions tab
+  workflow_dispatch:
+
+# Add permissions block
+permissions:
+  contents: write
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch all history for proper git operations
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Run progress update script
+      run: |
+        python update_progress.py
+    
+    - name: Commit and push if changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add PROGRESS.md
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Update progress [skip ci]" && git push) 
