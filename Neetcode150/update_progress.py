@@ -52,11 +52,15 @@ def scan_directories():
     """Scan directories for completed problems."""
     completed_problems = defaultdict(list)
     
+    # Get the directory where the script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
     for directory, section in DIR_TO_SECTION.items():
-        if os.path.exists(directory):
-            for filename in os.listdir(directory):
+        dir_path = os.path.join(script_dir, directory)
+        if os.path.exists(dir_path):
+            for filename in os.listdir(dir_path):
                 if filename.endswith(('.py', '.js', '.java', '.cpp')):
-                    file_path = os.path.join(directory, filename)
+                    file_path = os.path.join(dir_path, filename)
                     problem_number = extract_problem_number(file_path)
                     if problem_number:
                         completed_problems[section].append(problem_number)
@@ -65,11 +69,15 @@ def scan_directories():
 
 def update_progress_file(completed_problems):
     """Update the PROGRESS.md file."""
-    if not os.path.exists('PROGRESS.md'):
+    # Get the directory where the script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    progress_file = os.path.join(script_dir, 'PROGRESS.md')
+    
+    if not os.path.exists(progress_file):
         print("PROGRESS.md file not found.")
         return
     
-    with open('PROGRESS.md', 'r') as f:
+    with open(progress_file, 'r') as f:
         lines = f.readlines()
     
     updated_lines = []
@@ -110,7 +118,7 @@ def update_progress_file(completed_problems):
         else:
             updated_lines.append(line)
     
-    with open('PROGRESS.md', 'w') as f:
+    with open(progress_file, 'w') as f:
         f.writelines(updated_lines)
     
     print(f"Progress updated: {total_completed}/{total_problems} problems completed.")
