@@ -47,13 +47,49 @@ yarn-error.log*
 .env.local
 .env.*.local
 
-# Ignore large data folders and CSVs in ProjectPro
+# Large data files and models
+# Data files
+*.csv
+*.sql
+*.json
+*.txt
+*.tsv
+*.dat
+
+# Model files
+*.pkl
+*.h5
+*.model
+*.bin
+*.pt
+*.pth
+*.onnx
+*.pb
+*.tflite
+*.mlmodel
+*.joblib
+
+# Embeddings
+*.vec
+*.npy
+*.npz
+*.w2v
+*.bin.wv.vectors_ngrams.npy
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Project specific
 ProjectPro/**/Input/
 ProjectPro/**/Output/
 ProjectPro/**/Data/
-ProjectPro/**/*.csv
-
-# Ignore large archive, model, and SQL files in ProjectPro
-ProjectPro/**/*.zip
-ProjectPro/**/*.pkl
-ProjectPro/**/*.sql 
+ProjectPro/**/models/
+ProjectPro/**/embeddings/
+ProjectPro/**/Database_backup/
+ProjectPro/**/Training_data/
+ProjectPro/**/lambda_layers/ 
