@@ -16,7 +16,7 @@
 - [x] 167. Two Sum II
 - [x] 15. 3Sum
 - [x] 11. Container With Most Water
-- [ ] 42. Trapping Rain Water
+- [x] 42. Trapping Rain Water
 
 ## Sliding Window
 - [ ] 121. Best Time to Buy and Sell Stock
@@ -27,7 +27,7 @@
 - [ ] 239. Sliding Window Maximum
 
 ## Stack
-- [ ] 20. Valid Parentheses
+- [x] 20. Valid Parentheses
 - [ ] 155. Min Stack
 - [ ] 150. Evaluate Reverse Polish Notation
 - [ ] 22. Generate Parentheses
@@ -186,5 +186,5 @@
 - [ ] 268. Missing Number
 - [ ] 371. Sum of Two Integers
 
-# Total Problems Completed: (13/150)
-Progress: 8.7% - ||||||||||||||.........................................................................................................................................|
+# Total Problems Completed: (15/150)
+Progress: 10.0% - ||||||||||||||||.......................................................................................................................................|
