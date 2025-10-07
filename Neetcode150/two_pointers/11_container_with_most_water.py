@@ -9,10 +9,8 @@ You are given an integer array heights where heights[i] represents the height of
 
 You may choose any two bars to form a container. Return the maximum amount of water a container can store.
 
-![Container With Most Water](../images/11_container_with_most_water.avif)
-
-
 Example 1:
+![Container With Most Water](../images/11_container_with_most_water.avif)
 Input: height = [1,7,2,5,4,7,3,6]
 Output: 36
 Explanation: [explanation]
